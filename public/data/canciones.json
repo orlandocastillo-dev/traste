@@ -1,0 +1,559 @@
+{
+  "aviso": "Himnos de dominio público, con acordes de referencia en tonalidades cómodas para guitarra.",
+  "canciones": [
+    {
+      "id": "santo-santo-santo",
+      "title": "Santo, santo, santo",
+      "artist": "Reginald Heber y John B. Dykes, trad. Juan B. Cabrera",
+      "year": 1861,
+      "key": "D",
+      "lang": "es",
+      "tags": ["himno", "adoración"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Santo, [Bm]santo, [G]santo, [D]Señor omni[A]po[D]tente,",
+            "[D]siempre el [Bm]labio mío lo[E]ores te da[A]rá;",
+            "[D]Santo, [Bm]santo, [G]santo, [D]te adoro reve[A]ren[D]te,",
+            "[Bm]Dios en tres per[G]sonas, [D]bendita [A]Trini[D]dad."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[D]Santo, [Bm]santo, [G]santo, la [D]inmensa muche[A]dum[D]bre",
+            "[D]de ángeles que [Bm]cumplen tu [E]santa volun[A]tad,",
+            "[D]ante ti se [Bm]postra [G]bañada [D]de tu [A]lum[D]bre,",
+            "[Bm]ante ti que has [G]sido, que [D]eres y se[A]rás. [D]"
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "[D]Santo, [Bm]santo, [G]santo, por [D]más que estés ve[A]la[D]do,",
+            "[D]e imposible [Bm]sea tu [E]gloria contem[A]plar;",
+            "[D]santo tú eres [Bm]solo, y [G]nada hay a tu [D]la[A]do, [D]",
+            "[Bm]en poder per[G]fecto, pu[D]reza y cari[A]dad. [D]"
+          ]
+        },
+        {
+          "name": "Estrofa 4",
+          "lines": [
+            "[D]Santo, [Bm]santo, [G]santo, la [D]gloria de tu [A]nom[D]bre",
+            "[D]vemos en tus [Bm]obras en [E]cielo, tierra y [A]mar;",
+            "[D]Santo, [Bm]santo, [G]santo, te a[D]dorará todo [A]hom[D]bre,",
+            "[Bm]Dios en tres per[G]sonas, [D]bendita [A]Trini[D]dad."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "castillo-fuerte",
+      "title": "Castillo fuerte es nuestro Dios",
+      "artist": "Martín Lutero, trad. Juan B. Cabrera",
+      "year": 1529,
+      "key": "C",
+      "lang": "es",
+      "tags": ["himno", "reforma"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[C]Castillo [G]fuerte es [C]nuestro [F]Dios,",
+            "de[C]fensa y [G]buen es[C]cudo;",
+            "con [C]su po[G]der nos [C]libra[F]rá",
+            "en [C]este [G]trance a[C]gudo.",
+            "Con [C]furia y con a[G]fán",
+            "a[Am]cósanos Sa[E]tán;",
+            "por [F]armas deja [C]ver",
+            "as[F]tucia y gran po[G]der;",
+            "cual [F]él no hay [C]en la [G]tie[C]rra."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[C]Nuestro va[G]lor es [C]nada a[F]quí,",
+            "con [C]él todo es [G]perdi[C]do;",
+            "mas [C]por noso[G]tros pug[C]na[F]rá",
+            "de [C]Dios el [G]escogi[C]do.",
+            "¿Sa[C]béis quién es? Je[G]sús,",
+            "el [Am]que venció en la [E]cruz,",
+            "Se[F]ñor de Saba[C]oth,",
+            "y [F]pues él solo es [G]Dios,",
+            "él [F]triunfa en [C]la ba[G]ta[C]lla."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oh-que-amigo-nos-es-cristo",
+      "title": "Oh, qué amigo nos es Cristo",
+      "artist": "Joseph Scriven y Charles Converse, trad. Leandro Garza Mora",
+      "year": 1868,
+      "key": "G",
+      "lang": "es",
+      "tags": ["himno", "oración"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[G]Oh, qué amigo nos es [C]Cris[G]to,",
+            "él lle[G]vó nuestro do[D]lor,",
+            "y nos [G]manda que lle[C]ve[G]mos",
+            "todo a [G]Dios en [D]ora[G]ción.",
+            "¿[D]Vive el hombre despro[G]visto",
+            "de [D]paz, gozo y santo a[G]mor?",
+            "Esto es [G]porque no lle[C]ve[G]mos",
+            "todo a [G]Dios en [D]ora[G]ción."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "¿[G]Vives débil y car[C]ga[G]do",
+            "de cui[G]dados y te[D]mor?",
+            "A Je[G]sús, refugio e[C]ter[G]no,",
+            "dile [G]todo en ora[D]ci[G]ón.",
+            "¿Te des[D]precian tus a[G]migos?",
+            "Cuénta[D]selo en ora[G]ción;",
+            "en sus [G]brazos de amor [C]tier[G]no",
+            "paz ten[G]drá tu cora[D]zó[G]n."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "estad-por-cristo-firmes",
+      "title": "Estad por Cristo firmes",
+      "artist": "George Duffield y George Webb, trad. Juan B. Cabrera",
+      "year": 1858,
+      "key": "C",
+      "lang": "es",
+      "tags": ["himno"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[C]Estad por Cristo [F]fir[C]mes,",
+            "sol[C]dados de la [G]cruz;",
+            "al[C]zad hoy la ban[F]de[C]ra",
+            "en [G]nombre de Je[C]sús.",
+            "Es [Am]vuestra la vic[Em]toria",
+            "con [F]él por capi[C]tán;",
+            "por [C]él serán ven[F]ci[C]das",
+            "las [G]huestes de Sa[C]tán."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amazing-grace",
+      "title": "Amazing Grace",
+      "artist": "John Newton",
+      "year": 1779,
+      "key": "G",
+      "lang": "en",
+      "tags": ["himno", "gracia"],
+      "note": "En 3/4. Rasgueo: bajo, arriba, arriba.",
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "A[G]mazing [G7]grace, how [C]sweet the [G]sound",
+            "That [G]saved a [Em]wretch like [D]me!",
+            "I [G]once was [G7]lost, but [C]now am [G]found;",
+            "Was [G]blind, but [D]now I [G]see."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "'Twas [G]grace that [G7]taught my [C]heart to [G]fear,",
+            "And [G]grace my [Em]fears re[D]lieved;",
+            "How [G]precious [G7]did that [C]grace ap[G]pear",
+            "The [G]hour I [D]first be[G]lieved."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "Through [G]many [G7]dangers, [C]toils and [G]snares,",
+            "I [G]have al[Em]ready [D]come;",
+            "'Tis [G]grace hath [G7]brought me [C]safe thus [G]far,",
+            "And [G]grace will [D]lead me [G]home."
+          ]
+        },
+        {
+          "name": "Estrofa 4",
+          "lines": [
+            "When [G]we've been [G7]there ten [C]thousand [G]years,",
+            "Bright [G]shining [Em]as the [D]sun,",
+            "We've [G]no less [G7]days to [C]sing God's [G]praise",
+            "Than [G]when we'd [D]first be[G]gun."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "great-is-thy-faithfulness",
+      "title": "Great Is Thy Faithfulness",
+      "artist": "Thomas Chisholm y William Runyan",
+      "year": 1923,
+      "key": "D",
+      "lang": "en",
+      "tags": ["himno", "fidelidad"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Great is Thy [A]faithful[G]ness, [D]O God my [B7]Fa[Em]ther,",
+            "[A7]There is no [D]shadow of [E7]turning with [A]Thee; [A7]",
+            "[D]Thou changest [D7]not, Thy com[G]passions, they [E7]fail not;",
+            "[A]As Thou hast [D]been Thou for[A]ever wilt [D]be."
+          ]
+        },
+        {
+          "name": "Coro",
+          "lines": [
+            "[A]Great is Thy [D]faithfulness! [G]Great is Thy [D]faithfulness!",
+            "[Em]Morning by [A]morning new [D]mercies I [A]see;",
+            "[D]All I have [D7]needed Thy [G]hand hath pro[E7]vided,",
+            "[D]Great is Thy [A]faithful[A7]ness, Lord, unto [D]me!"
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[D]Summer and [A]winter, and [G]springtime and [D]har[B7]vest, [Em]",
+            "[A7]Sun, moon and [D]stars in their [E7]courses a[A]bove, [A7]",
+            "[D]Join with all [D7]nature in [G]manifold [E7]witness",
+            "[A]To Thy great [D]faithfulness, [A]mercy and [D]love."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "[D]Pardon for [A]sin and a [G]peace that en[D]du[B7]reth, [Em]",
+            "[A7]Thine own dear [D]presence to [E7]cheer and to [A]guide; [A7]",
+            "[D]Strength for to[D7]day and bright [G]hope for to[E7]morrow,",
+            "[A]Blessings all [D]mine, with ten [A]thousand be[D]side!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it-is-well-with-my-soul",
+      "title": "It Is Well with My Soul",
+      "artist": "Horatio Spafford y Philip Bliss",
+      "year": 1876,
+      "key": "C",
+      "lang": "en",
+      "tags": ["himno", "paz"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "When [C]peace like a [F]river at[C]tendeth my way,",
+            "When [Am]sorrows like [D7]sea billows [G]roll;",
+            "What[C]ever my [F]lot, Thou hast [C]taught me to [Am]say,",
+            "It is [C]well, it is [G7]well with my [C]soul."
+          ]
+        },
+        {
+          "name": "Coro",
+          "lines": [
+            "It is [G7]well with my [C]soul,",
+            "It is [F]well, it is [C]well [G7]with my [C]soul."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "Though [C]Satan should [F]buffet, though [C]trials should come,",
+            "Let [Am]this blest as[D7]surance con[G]trol,",
+            "That [C]Christ has re[F]garded my [C]helpless es[Am]tate,",
+            "And hath [C]shed His own [G7]blood for my [C]soul."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "My [C]sin, oh, the [F]bliss of this [C]glorious thought!",
+            "My [Am]sin, not in [D7]part but the [G]whole,",
+            "Is [C]nailed to the [F]cross, and I [C]bear it no [Am]more,",
+            "Praise the [C]Lord, praise the [G7]Lord, O my [C]soul!"
+          ]
+        },
+        {
+          "name": "Estrofa 4",
+          "lines": [
+            "And [C]Lord, haste the [F]day when my [C]faith shall be sight,",
+            "The [Am]clouds be rolled [D7]back as a [G]scroll;",
+            "The [C]trump shall re[F]sound, and the [C]Lord shall de[Am]scend,",
+            "Even [C]so, it is [G7]well with my [C]soul."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be-thou-my-vision",
+      "title": "Be Thou My Vision",
+      "artist": "Himno irlandés, trad. Mary Byrne y Eleanor Hull",
+      "year": 1912,
+      "key": "D",
+      "lang": "en",
+      "tags": ["himno", "consagración"],
+      "note": "En 3/4. Suena muy bien con cejilla en el 2 usando formas de C.",
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Be Thou my [G]Vi[D]sion, O [G]Lord of my [A]heart;",
+            "[Bm]Naught be all [G]else to me, [D]save that Thou [A]art.",
+            "[D]Thou my best [G]Thought, by [D]day or by [G]night,",
+            "[D]Waking or [G]sleeping, Thy [A]presence my [D]light."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[D]Be Thou my [G]Wis[D]dom, and [G]Thou my true [A]Word;",
+            "[Bm]I ever with [G]Thee and Thou [D]with me, [A]Lord;",
+            "[D]Thou my great [G]Father, [D]I Thy true [G]son;",
+            "[D]Thou in me [G]dwelling, and [A]I with Thee [D]one."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "[D]Riches I [G]heed [D]not, nor [G]man's empty [A]praise,",
+            "[Bm]Thou mine In[G]heritance, [D]now and al[A]ways:",
+            "[D]Thou and Thou [G]only, [D]first in my [G]heart,",
+            "[D]High King of [G]Heaven, my [A]Treasure Thou [D]art."
+          ]
+        },
+        {
+          "name": "Estrofa 4",
+          "lines": [
+            "[D]High King of [G]Hea[D]ven, my [G]victory [A]won,",
+            "[Bm]May I reach [G]Heaven's joys, [D]O bright Heaven's [A]Sun!",
+            "[D]Heart of my [G]own heart, [D]whatever be[G]fall,",
+            "[D]Still be my [G]Vision, O [A]Ruler of [D]all."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blessed-assurance",
+      "title": "Blessed Assurance",
+      "artist": "Fanny Crosby y Phoebe Knapp",
+      "year": 1873,
+      "key": "D",
+      "lang": "en",
+      "tags": ["himno", "testimonio"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Blessed as[G]surance, [D]Jesus is mine!",
+            "[A]Oh, what a fore[E7]taste of [A]glory di[A7]vine!",
+            "[D]Heir of sal[G]vation, [D]purchase of God,",
+            "[G]Born of His [D]Spirit, [A]washed in His [D]blood."
+          ]
+        },
+        {
+          "name": "Coro",
+          "lines": [
+            "[D]This is my story, [G]this is my [D]song,",
+            "[A]Praising my Savior [E7]all the day [A]long; [A7]",
+            "[D]This is my story, [G]this is my [D]song,",
+            "[G]Praising my [D]Savior [A]all the day [D]long."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[D]Perfect sub[G]mission, [D]perfect delight,",
+            "[A]Visions of rap[E7]ture now [A]burst on my [A7]sight;",
+            "[D]Angels de[G]scending [D]bring from above",
+            "[G]Echoes of [D]mercy, [A]whispers of [D]love."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "[D]Perfect sub[G]mission, [D]all is at rest,",
+            "[A]I in my Sav[E7]ior am [A]happy and [A7]blest,",
+            "[D]Watching and [G]waiting, [D]looking above,",
+            "[G]Filled with His [D]goodness, [A]lost in His [D]love."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "come-thou-fount",
+      "title": "Come, Thou Fount of Every Blessing",
+      "artist": "Robert Robinson y John Wyeth",
+      "year": 1758,
+      "key": "D",
+      "lang": "en",
+      "tags": ["himno", "gracia"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Come, Thou Fount of [G]every [D]blessing,",
+            "[D]Tune my heart to [A]sing Thy [D]grace;",
+            "[D]Streams of mercy, [G]never [D]ceasing,",
+            "[D]Call for songs of [A]loudest [D]praise.",
+            "[D]Teach me some me[G]lodious [D]sonnet,",
+            "[Bm]Sung by flaming [A]tongues a[E]bove; [A]",
+            "[D]Praise the mount! I'm [G]fixed up[D]on it,",
+            "[D]Mount of Thy re[A]deeming [D]love."
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[D]Here I raise my [G]Eben[D]ezer;",
+            "[D]Hither by Thy [A]help I'm [D]come;",
+            "[D]And I hope, by [G]Thy good [D]pleasure,",
+            "[D]Safely to ar[A]rive at [D]home.",
+            "[D]Jesus sought me [G]when a [D]stranger,",
+            "[Bm]Wandering from the [A]fold of [E]God; [A]",
+            "[D]He, to rescue [G]me from [D]danger,",
+            "[D]Interposed His [A]precious [D]blood."
+          ]
+        },
+        {
+          "name": "Estrofa 3",
+          "lines": [
+            "[D]O to grace how [G]great a [D]debtor",
+            "[D]Daily I'm con[A]strained to [D]be!",
+            "[D]Let Thy goodness, [G]like a [D]fetter,",
+            "[D]Bind my wandering [A]heart to [D]Thee.",
+            "[D]Prone to wander, [G]Lord, I [D]feel it,",
+            "[Bm]Prone to leave the [A]God I [E]love; [A]",
+            "[D]Here's my heart, O [G]take and [D]seal it,",
+            "[D]Seal it for Thy [A]courts a[D]bove."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-a-friend",
+      "title": "What a Friend We Have in Jesus",
+      "artist": "Joseph Scriven y Charles Converse",
+      "year": 1868,
+      "key": "G",
+      "lang": "en",
+      "tags": ["himno", "oración"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[G]What a friend we have in [C]Je[G]sus,",
+            "All our [G]sins and griefs to [D]bear!",
+            "What a [G]privilege to [C]car[G]ry",
+            "Every[G]thing to God in [D]pray[G]er!",
+            "O what [D]peace we often [G]forfeit,",
+            "O what [D]needless pain we [G]bear,",
+            "All be[G]cause we do not [C]car[G]ry",
+            "Every[G]thing to God in [D]pray[G]er!"
+          ]
+        },
+        {
+          "name": "Estrofa 2",
+          "lines": [
+            "[G]Have we trials and temp[C]ta[G]tions?",
+            "Is there [G]trouble any[D]where?",
+            "We should [G]never be dis[C]cour[G]aged;",
+            "Take it [G]to the Lord in [D]pray[G]er.",
+            "Can we [D]find a friend so [G]faithful",
+            "Who will [D]all our sorrows [G]share?",
+            "Jesus [G]knows our every [C]weak[G]ness;",
+            "Take it [G]to the Lord in [D]pray[G]er."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "holy-holy-holy",
+      "title": "Holy, Holy, Holy",
+      "artist": "Reginald Heber y John B. Dykes",
+      "year": 1861,
+      "key": "D",
+      "lang": "en",
+      "tags": ["himno", "adoración"],
+      "sections": [
+        {
+          "name": "Estrofa 1",
+          "lines": [
+            "[D]Holy, [Bm]holy, [G]holy! [D]Lord God Al[A]migh[D]ty!",
+            "[D]Early in the [Bm]morning our [E]song shall rise to [A]Thee;",
+            "[D]Holy, [Bm]holy, [G]holy, [D]merciful and [A]migh[D]ty!",
+            "[Bm]God in three [G]Persons, [D]blessed [A]Trini[D]ty!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doxologia",
+      "title": "Doxology (Old Hundredth)",
+      "artist": "Thomas Ken y Louis Bourgeois",
+      "year": 1674,
+      "key": "G",
+      "lang": "en",
+      "tags": ["himno", "cierre"],
+      "sections": [
+        {
+          "name": "Única",
+          "lines": [
+            "[G]Praise God, from [D]whom all [G]blessings [C]flow;",
+            "[G]Praise Him, all [Em]creatures [D]here be[G]low;",
+            "[G]Praise Him a[D]bove, ye [Em]heavenly [D]host;",
+            "[G]Praise Father, [C]Son, and [D]Holy [G]Ghost."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practica-adoracion-g",
+      "title": "Progresión de adoración en G",
+      "artist": "Para practicar",
+      "key": "G",
+      "lang": "es",
+      "tags": ["práctica"],
+      "note": "La progresión más usada en adoración contemporánea (I, V, vi, IV). Practica la pentatónica de G encima.",
+      "sections": [
+        { "name": "Verso", "lines": ["[G] [D] [Em] [C]", "[G] [D] [Em] [C]"] },
+        { "name": "Coro", "lines": ["[C] [G] [D] [Em]", "[C] [G] [D] [D]"] }
+      ]
+    },
+    {
+      "id": "practica-ministracion-d",
+      "title": "Ministración en D",
+      "artist": "Para practicar",
+      "key": "D",
+      "lang": "es",
+      "tags": ["práctica"],
+      "note": "Ambiente lento para momentos de oración. Prueba la mayor de D y notas largas.",
+      "sections": [
+        { "name": "Ambiente", "lines": ["[D] [A/C#] [Bm] [G]", "[D/F#] [G] [Asus4] [A]"] }
+      ]
+    },
+    {
+      "id": "practica-menor-em",
+      "title": "Intercesión en Em",
+      "artist": "Para practicar",
+      "key": "Em",
+      "lang": "es",
+      "tags": ["práctica"],
+      "sections": [
+        { "name": "Ciclo", "lines": ["[Em] [C] [G] [D]", "[Em] [C] [Am] [B7]"] }
+      ]
+    }
+  ]
+}
