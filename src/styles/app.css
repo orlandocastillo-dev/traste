@@ -1403,3 +1403,191 @@ label.pref {
     padding: 0.3rem;
   }
 }
+
+/* ---------- Portada: titular, buscador y el mástil animado ---------- */
+
+.page--home {
+  max-width: 1080px;
+}
+.page--home > :not(.intro) {
+  max-width: 760px;
+}
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(0.5rem, 3vw, 2rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+.intro__kicker {
+  color: var(--pen);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.intro__title {
+  margin: 0;
+  font: 500 clamp(2.3rem, 5.2vw, 3.6rem) / 1.04 var(--serif);
+  letter-spacing: -0.025em;
+  max-width: 16ch;
+}
+.intro__title em {
+  color: var(--pen);
+  font-style: italic;
+}
+.intro .finder__label {
+  margin-top: 0.75rem;
+  font: 600 1rem / 1.4 var(--sans);
+  letter-spacing: 0;
+  max-width: none;
+}
+@media (max-width: 880px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+.neck {
+  display: grid;
+  gap: 0.9rem;
+}
+.neck__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.neck__chord {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0;
+  color: var(--pen);
+  font: 600 clamp(2.6rem, 5vw, 3.4rem) / 1 var(--serif);
+  letter-spacing: -0.02em;
+}
+.neck__roman {
+  color: var(--muted);
+  font: 500 1rem var(--serif);
+  font-style: italic;
+}
+.neck__play {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: none;
+  color: var(--ink);
+  font: 600 0.88rem var(--sans);
+  cursor: pointer;
+}
+.neck__play:hover {
+  border-color: var(--pen);
+  color: var(--pen);
+}
+.neck__svg {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.neck__svg.is-left {
+  transform: scaleX(-1);
+}
+.neck__svg.is-left text {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scaleX(-1);
+}
+.neck__wood {
+  fill: #2b211b;
+}
+.neck__inlay {
+  fill: #6f5e50;
+}
+.neck__nut {
+  fill: #ece4d4;
+}
+.neck__fret {
+  fill: #b9b3a8;
+}
+.neck__fretnum {
+  fill: var(--faint);
+  font: 500 13px var(--sans);
+}
+.neck__string {
+  fill: none;
+  stroke: #e9e2d3;
+  stroke-linecap: round;
+}
+.neck__open {
+  fill: var(--muted);
+  font: 600 18px var(--sans);
+}
+.neck__open.is-muted {
+  fill: var(--danger);
+}
+.neck__dot {
+  transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.neck__dot circle {
+  fill: var(--pen);
+  stroke: #2b211b;
+  stroke-width: 2;
+}
+.neck__dot text {
+  fill: #fff;
+  font: 700 11px var(--sans);
+}
+.neck__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.neck__steps button {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.6rem 0.4rem;
+  border: 0;
+  border-left: 1px solid var(--rule);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.neck__steps button:first-child {
+  border-left: 0;
+}
+.neck__steps span {
+  font: 600 1.15rem var(--serif);
+}
+.neck__steps small {
+  color: var(--muted);
+  font: 500 0.78rem var(--sans);
+}
+.neck__steps button[aria-pressed="true"] {
+  background: var(--pen-wash);
+}
+.neck__steps button[aria-pressed="true"] span {
+  color: var(--pen);
+}
+.neck__hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .neck__dot,
+  .neck__steps button {
+    transition: none;
+  }
+}
+.neck__peg {
+  fill: #cfc8ba;
+}
+.neck__post {
+  fill: #8f877a;
+}
+.neck__open {
+  fill: #e9e2d3;
+}

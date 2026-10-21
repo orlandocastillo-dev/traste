@@ -1,6 +1,7 @@
 import { useDeferredValue, useMemo, useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router";
 import { useAppSelector } from "../app/hooks";
+import { GuitarNeck } from "../components/GuitarNeck";
 import { useGetCatalogQuery } from "../features/catalog/catalogApi";
 import { searchSongs, selectAllSongs } from "../features/library/selectors";
 import { keyText } from "../lib/format";
@@ -55,37 +56,46 @@ export function Biblioteca() {
   };
 
   return (
-    <div className="page">
-      <form className="finder" onSubmit={submit} role="search">
-        <label htmlFor="buscar" className="finder__label">
-          Pega el link de YouTube de la canción que vas a tocar
-        </label>
-        <div className="finder__row">
-          <input
-            id="buscar"
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="youtube.com/watch?v=…"
-            autoComplete="off"
-            spellCheck={false}
-            enterKeyHint={isLink ? "go" : "search"}
-          />
-          {isLink && (
-            <button type="submit" className="btn btn--ink">
-              Buscar letra
-            </button>
+    <div className="page page--home">
+      <section className="intro">
+        <form className="finder" onSubmit={submit} role="search">
+          <p className="intro__kicker">Para guitarristas de alabanza</p>
+          <h1 className="intro__title">
+            La letra y los acordes de la canción del domingo, <em>en su sitio</em>.
+          </h1>
+          <label htmlFor="buscar" className="finder__label">
+            Pega el link de YouTube de la canción que vas a tocar
+          </label>
+          <div className="finder__row">
+            <input
+              id="buscar"
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="youtube.com/watch?v=…"
+              autoComplete="off"
+              spellCheck={false}
+              enterKeyHint={isLink ? "go" : "search"}
+            />
+            {isLink && (
+              <button type="submit" className="btn btn--ink">
+                Buscar letra
+              </button>
+            )}
+          </div>
+          {looksLikeProgression && (
+            <p>
+              <Link className="link" to={`/progresion?acordes=${typed.chords.map(encodeURIComponent).join("-")}`}>
+                Ver la tonalidad y las escalas de {typed.chords.join(" ")}
+              </Link>
+            </p>
           )}
-        </div>
-        {looksLikeProgression && (
-          <p>
-            <Link className="link" to={`/progresion?acordes=${typed.chords.map(encodeURIComponent).join("-")}`}>
-              Ver la tonalidad y las escalas de {typed.chords.join(" ")}
-            </Link>
+          <p className="finder__hint">
+            Traemos la letra y le pones los acordes. También puedes buscar aquí por nombre, una frase o un acorde como F#m.
           </p>
-        )}
-        <p className="finder__hint">Traemos la letra y le pones los acordes. También puedes buscar aquí por nombre, una frase o un acorde como F#m.</p>
-      </form>
+        </form>
+        <GuitarNeck />
+      </section>
 
       {!query && recent.length > 0 && (
         <p className="recent">

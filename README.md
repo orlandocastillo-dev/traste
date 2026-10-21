@@ -57,6 +57,7 @@ Además: diccionario de 16 tipos de acorde, explorador de escalas, favoritas, b�
 - **Formato ChordPro** para guardar las canciones: `A[G]mazing [G7]grace`. Es el estándar de los cancioneros digitales, se transpone con una expresión regular y no depende de espacios ni de fuentes monoespaciadas. `src/lib/chordpro.ts` convierte desde hojas con acordes encima, detecta encabezados (Coro, Puente, `[Intro]`) y nombra solo las partes: un bloque que se repite es el coro.
 - **Los acordes no se descargan.** No existe una fuente abierta de acordes, y copiar los de sitios como LaCuerda o Ultimate Guitar va contra sus condiciones de uso. Por eso la app hace rápido lo que sí se puede: traer la letra y poner los acordes con un toque.
 - **Letras y derechos de autor.** Los himnos incluidos son de dominio público (publicados antes de 1929). Las letras de canciones actuales vienen de LRCLIB solo cuando el usuario las busca, y se guardan únicamente en su dispositivo.
+- **El mástil de la portada es SVG y código, no un video.** Recorre G – D – Em – C (I – V – vi – IV), mueve los dedos con transiciones de CSS y hace vibrar cada cuerda en el orden del rasgueo con `requestAnimationFrame`. Tocar un acorde lo hace sonar con el mismo sintetizador de cuerda pulsada (Karplus-Strong) de los diagramas. Respeta el cifrado latino, el modo zurdo y "reducir movimiento".
 - **El video se carga al tocarlo**: la miniatura pesa unos KB y el reproductor de YouTube más de 1 MB.
 
 ### Estructura

@@ -6,6 +6,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { makeStore } from "../src/app/store";
 import { ChordDiagram } from "../src/components/ChordDiagram";
 import { Fretboard } from "../src/components/Fretboard";
+import { GuitarNeck } from "../src/components/GuitarNeck";
+import { strum } from "../src/lib/audio";
 import { Sheet } from "../src/components/Sheet";
 import { songSaved } from "../src/features/library/librarySlice";
 import { prefsUpdated } from "../src/features/prefs/prefsSlice";
@@ -186,5 +188,31 @@ describe("desde un link de YouTube", () => {
     const saved = Object.values(store.getState().library.entities)[0]!;
     expect(saved.sections[0].lines).toEqual(["[G]Santo es [C]el Señor", "[D]Digno [G]de alabar"]);
     expect(saved.key).toBe("G");
+  });
+});
+
+describe("mástil de la portada", () => {
+  it("muestra el acorde, cambia al tocar otro y lo hace sonar", async () => {
+    render(
+      <Provider store={makeStore()}>
+        <GuitarNeck />
+      </Provider>,
+    );
+    expect(screen.getByRole("img", { name: /acorde G$/ })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: /^Em/ }));
+    expect(screen.getByRole("img", { name: /acorde Em$/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^Em/ })).toHaveAttribute("aria-pressed", "true");
+    expect(strum).toHaveBeenCalled();
+  });
+
+  it("usa el cifrado latino si está elegido", () => {
+    const store = makeStore();
+    store.dispatch(prefsUpdated({ notation: "latina" }));
+    render(
+      <Provider store={store}>
+        <GuitarNeck />
+      </Provider>,
+    );
+    expect(screen.getByRole("img", { name: /acorde Sol$/ })).toBeInTheDocument();
   });
 });
