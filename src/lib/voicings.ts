@@ -4,7 +4,7 @@ import { chroma, normalizeQuality, parseChord } from "./music";
 export const TUNING = [40, 45, 50, 55, 59, 64];
 export const STRING_NAMES = ["E", "A", "D", "G", "B", "E"];
 
-/** -1 = cuerda que no se toca (x), 0 = al aire, n = traste. De la sexta a la primera cuerda. */
+// 1 = cuerda que no se toca (x), 0 = al aire, n = traste
 export type Frets = [number, number, number, number, number, number];
 
 export interface Voicing {

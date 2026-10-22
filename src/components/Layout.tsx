@@ -12,8 +12,7 @@ const NAV = [
 
 export function Layout() {
   const { pathname } = useLocation();
-  // Al cambiar de página se empieza desde arriba, como en un sitio normal.
-  // Con llaves: en Chrome reciente scrollTo devuelve una promesa, y React la tomaría como función de limpieza.
+  // Al cambiar de página se empieza desde arriba, como en un sitio normal
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);

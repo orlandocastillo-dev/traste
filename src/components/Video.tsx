@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { embedUrl, thumbnailUrl, watchUrl } from "../lib/youtube";
 
-/**
- * El video se carga solo cuando se pide: la miniatura pesa unos KB y el reproductor de YouTube, más de 1 MB.
- * Desde un archivo abierto con doble clic YouTube a veces no deja reproducir; por eso siempre está el enlace.
- */
+// El video se carga solo cuando se pide: la miniatura pesa unos KB y el reproductor de YouTube, más de 1 MB
 export function Video({ id, title }: { id: string; title: string }) {
   const [playing, setPlaying] = useState(false);
   return (

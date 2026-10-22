@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-/**
- * Desplaza la página sola a la velocidad elegida, para tocar sin soltar la guitarra.
- * Se detiene al llegar al final o si el usuario desplaza con la mano hacia arriba.
- */
+// Desplaza la página sola a la velocidad elegida, para tocar sin soltar la guitarra
 export function useAutoScroll() {
   const [on, setOn] = useState(false);
   const [speed, setSpeed] = useState(2);

@@ -54,10 +54,7 @@ export function transposeLine(line: string, semitones: number, targetKey: string
   return line.replace(CHORD_TAG, (whole, c: string) => (isChord(c) ? `[${transposeChord(c.trim(), semitones, targetKey)}]` : whole));
 }
 
-/**
- * Pone (o quita, con null) el acorde al inicio de la palabra número `index` de la línea.
- * Es lo que pasa al tocar una palabra en el modo "Colocar acordes".
- */
+// Pone (o quita, con null) el acorde al inicio de la palabra número `index` de la línea
 export function setChordAtWord(line: string, index: number, chord: string | null): string {
   const parts = line.split(/(\s+)/);
   let n = -1;
@@ -80,7 +77,7 @@ export function chordAtWord(line: string, index: number): string | undefined {
   return word?.match(/^\[([^\]]+)\]/)?.[1];
 }
 
-/* ---------- Cifrado latino (Do, Re, Mi) ---------- */
+// Cifrado latino (Do, Re, Mi)
 
 const LATIN_ROOTS: [RegExp, string][] = [
   [/^Sol/, "G"],
@@ -92,7 +89,7 @@ const LATIN_ROOTS: [RegExp, string][] = [
   [/^Si/, "B"],
 ];
 
-/** "Rem7" → "Dm7", "Sol/Si" → "G/B". Si no es un acorde en cifrado latino, devuelve null. */
+// "Rem7" → "Dm7", "Sol/Si" → "G/B"
 export function latinToAmerican(symbol: string): string | null {
   const convert = (part: string) => {
     for (const [re, en] of LATIN_ROOTS) if (re.test(part)) return part.replace(re, en);
@@ -121,7 +118,7 @@ function isPlausibleChord(t: string): boolean {
   return /^[A-G][#b]?((m|min|maj|M|dim|aug|sus|add|°|ø|\+|-)?[0-9]{0,2}(sus[24]?|add[0-9]+|b[0-9]+|#[0-9]+|maj[0-9]*)*)?(\/[A-G][#b]?)?$/.test(t);
 }
 
-/* ---------- Hoja de acordes "encima de la letra" ---------- */
+// Hoja de acordes "encima de la letra"
 
 const NOISE = /^(\||-|x\d+|\(|\)|%|\.+)$/i;
 
@@ -175,7 +172,7 @@ export function chordSheetToChordPro(text: string): string {
   return out.join("\n");
 }
 
-/* ---------- Texto del editor ↔ secciones ---------- */
+// Texto del editor ↔ secciones
 
 const HEADER_WORDS =
   /^(estrofa|verso|coro|pre-?coro|puente|intro|introducci[oó]n|final|outro|interludio|instrumental|tag|refr[aá]n|verse|chorus|pre-?chorus|bridge|refrain|ending|vamp)\b/i;
@@ -194,10 +191,7 @@ function headerName(line: string): string {
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
-/**
- * Convierte el texto del editor en secciones. Los bloques se separan con una línea en blanco.
- * Sin encabezados, se nombran solos: un bloque que se repite es el coro, los demás son estrofas.
- */
+// Convierte el texto del editor en secciones
 export function textToSections(raw: string): Section[] {
   const hasChordPro = /\[[^\]]+\]/.test(raw) && raw.split("\n").some((l) => chordsInLine(l).length);
   const text = hasChordPro ? raw.replace(/\r/g, "") : chordSheetToChordPro(raw);

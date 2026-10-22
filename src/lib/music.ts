@@ -76,7 +76,7 @@ export function shapeWithCapo(symbol: string, capo: number, soundingKey: string)
   return transposeChord(symbol, -capo, transposeKey(soundingKey, -capo));
 }
 
-/* ---------- Notación latina (Do, Re, Mi) ---------- */
+// Notación latina (Do, Re, Mi)
 
 const LATIN: Record<string, string> = { C: "Do", D: "Re", E: "Mi", F: "Fa", G: "Sol", A: "La", B: "Si" };
 
@@ -94,7 +94,7 @@ export function chordLabel(symbol: string, notation: Notation): string {
   return `${noteLabel(c.root, "latina")}${c.quality}${c.bass ? `/${noteLabel(c.bass, "latina")}` : ""}`;
 }
 
-/* ---------- Notas de acordes y escalas ---------- */
+// Notas de acordes y escalas
 
 /** Clases de altura (0-11) de las notas de un acorde, usando Tonal para la teoría. */
 export function chordPitchClasses(symbol: string): number[] {
@@ -149,10 +149,7 @@ export function relativeMajor(minorTonic: string): string {
   return spell(chroma(minorTonic) + 3, usesFlats(`${minorTonic}m`));
 }
 
-/**
- * Qué escalas sirven para improvisar sobre la canción, de la más segura a la más colorida.
- * Si en tonalidad menor aparece el acorde mayor del quinto grado (F# en Si menor), se sugiere la menor armónica.
- */
+// Qué escalas sirven para improvisar sobre la canción, de la más segura a la más colorida
 export function suggestScales(key: string, chords: string[] = []): ScaleOption[] {
   const k = parseKey(key);
   const t = k.tonic;
@@ -204,10 +201,7 @@ export function intervalLabel(pc: number, tonicPc: number): string {
   return names[(((pc - tonicPc) % 12) + 12) % 12];
 }
 
-/**
- * Los acordes que pertenecen a la tonalidad, en el orden de los grados.
- * Son los que se ofrecen primero al colocar acordes sobre una letra.
- */
+// Los acordes que pertenecen a la tonalidad, en el orden de los grados
 export function diatonicChords(key: string): string[] {
   const k = parseKey(key);
   const flats = usesFlats(key);
@@ -233,10 +227,7 @@ function signature(c: ParsedChord): string {
   return `${chroma(c.root)}${minor ? "m" : ""}`;
 }
 
-/**
- * Ordena las tonalidades posibles para una progresión: gana la que contiene más acordes,
- * con ventaja si la progresión empieza o termina en su tónica.
- */
+// Ordena las tonalidades posibles para una progresión
 export function rankKeys(chords: string[]): KeyFit[] {
   const parsed = chords.map(parseChord).filter((c): c is ParsedChord => !!c);
   if (!parsed.length) return [];
@@ -267,10 +258,7 @@ export function guessKey(chords: string[]): string | null {
 const MAJOR_DEGREES = ["I", "bII", "II", "bIII", "III", "IV", "#IV", "V", "bVI", "VI", "bVII", "VII"];
 const MINOR_DEGREES = ["I", "bII", "II", "III", "#III", "IV", "#IV", "V", "VI", "#VI", "VII", "#VII"];
 
-/**
- * El grado del acorde en la tonalidad, como lo cifran los músicos: en G, Em es vi y D7 es V7.
- * Mayúscula para acordes mayores, minúscula para menores.
- */
+// El grado del acorde en la tonalidad, como lo cifran los músicos
 export function romanNumeral(symbol: string, key: string): string {
   const c = parseChord(symbol);
   if (!c) return "?";

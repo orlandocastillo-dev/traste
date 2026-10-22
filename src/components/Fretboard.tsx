@@ -18,7 +18,7 @@ interface Props {
 
 const MARKERS = [3, 5, 7, 9, 15, 17];
 
-/** Diapasón completo en SVG. La primera cuerda (Mi aguda) arriba, como en una tablatura. */
+// Diapasón completo en SVG
 export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, capo = 0, label }: Props) {
   const { notation, leftHanded, fretLabels } = useAppSelector((s) => s.prefs);
   const pcs = new Set(notes.map(chroma));

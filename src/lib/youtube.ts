@@ -2,10 +2,7 @@ import type { Song } from "../types";
 
 const ID = /^[\w-]{11}$/;
 
-/**
- * Saca el id del video de cualquier forma de link de YouTube:
- * youtu.be/ID, watch?v=ID, /shorts/ID, /live/ID, /embed/ID, music.youtube.com, o el id solo.
- */
+// Saca el id del video de cualquier forma de link de YouTube
 export function parseYouTubeId(input: string): string | null {
   const text = input.trim();
   if (ID.test(text)) return text;
@@ -66,10 +63,7 @@ function loose(text: string): string {
     .replace(/[^a-z0-9]/g, "");
 }
 
-/**
- * Del título del video saca canción y artista.
- * "Elevation Worship - Tu Fidelidad (Video Oficial)" → { title: "Tu Fidelidad", artist: "Elevation Worship" }
- */
+// Del título del video saca canción y artista
 export function parseVideoTitle(rawTitle: string, channel = ""): { title: string; artist: string } {
   let t = rawTitle
     .replace(/[([{【][^)\]}】]*[)\]}】]/g, " ")

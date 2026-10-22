@@ -44,10 +44,7 @@ async function getJson<T>(url: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-/**
- * Lo que la app consulta en internet: los datos del video (oEmbed) y la letra (LRCLIB).
- * Ninguno de los dos pide clave ni cuenta, y ambos responden a peticiones desde el navegador.
- */
+// Lo que la app consulta en internet: los datos del video (oEmbed) y la letra (LRCLIB)
 export const webApi = createApi({
   reducerPath: "webApi",
   baseQuery: fakeBaseQuery<WebError>(),

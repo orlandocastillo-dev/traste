@@ -47,10 +47,7 @@ function fingerX(fret: number) {
   return (FRET_X[fret - 1] + FRET_X[fret]) / 2;
 }
 
-/**
- * Mástil de guitarra animado para la portada: recorre una progresión, mueve los dedos a cada acorde y
- * hace vibrar las cuerdas en el orden de un rasgueo. Al tocarlo suena el acorde.
- */
+// Mástil de guitarra animado para la portada
 export function GuitarNeck() {
   const notation = useAppSelector((s) => s.prefs.notation);
   const leftHanded = useAppSelector((s) => s.prefs.leftHanded);

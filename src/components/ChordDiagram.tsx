@@ -16,7 +16,7 @@ interface Props {
 const STRINGS = 6;
 const FRETS = 5;
 
-/** Diagrama de acorde en SVG, generado a partir de la posición. Clic para escucharlo. */
+// Diagrama de acorde en SVG, generado a partir de la posición
 export function ChordDiagram({ shape, capo = 0, size = "sm", active, onPlay }: Props) {
   const notation = useAppSelector((s) => s.prefs.notation);
   const leftHanded = useAppSelector((s) => s.prefs.leftHanded);

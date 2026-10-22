@@ -1,8 +1,4 @@
-/*
-  Traste: la hoja de acordes del atril.
-  Papel blanco, tinta casi negra y los acordes en azul de bolígrafo, como se marcan a mano en el ensayo.
-  Literata para la letra (hecha para leer largo rato), Figtree para la interfaz y los acordes.
-*/
+/* Traste: la hoja de acordes del atril */
 
 :root {
   --paper: #fcfcfb;
@@ -134,7 +130,7 @@ textarea {
   flex: 1;
 }
 
-/* ---------- Estructura ---------- */
+/* Estructura */
 
 .top {
   display: flex;
@@ -214,7 +210,7 @@ textarea {
   color: var(--ink);
 }
 
-/* ---------- Controles ---------- */
+/* Controles */
 
 .btn {
   display: inline-flex;
@@ -406,7 +402,7 @@ select option {
   max-width: 52ch;
 }
 
-/* ---------- Biblioteca ---------- */
+/* Biblioteca */
 
 .finder {
   display: grid;
@@ -505,7 +501,7 @@ select option {
   font-size: 0.9rem;
 }
 
-/* ---------- Canción ---------- */
+/* Canción */
 
 .song-page {
   display: grid;
@@ -600,7 +596,7 @@ select option {
   scrollbar-width: thin;
 }
 
-/* ---------- Hoja: letra con acordes ---------- */
+/* Hoja: letra con acordes */
 
 .sheet {
   --lyric-size: 19px;
@@ -685,7 +681,7 @@ select option {
   cursor: inherit;
 }
 
-/* ---------- Diagramas de acordes ---------- */
+/* Diagramas de acordes */
 
 .chord {
   margin: 0;
@@ -765,7 +761,7 @@ select option {
   fill: var(--pen);
 }
 
-/* ---------- Video ---------- */
+/* Video */
 
 .video {
   display: grid;
@@ -822,7 +818,7 @@ select option {
   text-underline-offset: 3px;
 }
 
-/* ---------- Improvisar y diapasón ---------- */
+/* Improvisar y diapasón */
 
 .improv {
   display: grid;
@@ -951,7 +947,7 @@ select option {
   opacity: 0.16;
 }
 
-/* ---------- Importar desde YouTube ---------- */
+/* Importar desde YouTube */
 
 .import {
   display: grid;
@@ -1008,7 +1004,7 @@ select option {
   font-style: italic;
 }
 
-/* ---------- Formularios ---------- */
+/* Formularios */
 
 .form {
   display: grid;
@@ -1112,7 +1108,7 @@ select:focus,
   padding-top: 0.5rem;
 }
 
-/* ---------- Acordes y escalas ---------- */
+/* Acordes y escalas */
 
 .block {
   display: grid;
@@ -1184,7 +1180,7 @@ select:focus,
   gap: 0.75rem;
 }
 
-/* ---------- Ajustes ---------- */
+/* Ajustes */
 
 .card {
   display: grid;
@@ -1243,7 +1239,7 @@ label.pref {
   max-width: 60ch;
 }
 
-/* ---------- Progresión ---------- */
+/* Progresión */
 
 .page--wide {
   max-width: 980px;
@@ -1293,7 +1289,7 @@ label.pref {
   color: var(--muted);
 }
 
-/* ---------- Pantallas medianas y celular ---------- */
+/* Pantallas medianas y celular */
 
 @media (max-width: 960px) {
   .song-layout--video {
@@ -1404,7 +1400,7 @@ label.pref {
   }
 }
 
-/* ---------- Portada: titular, buscador y el mástil animado ---------- */
+/* Portada: titular, buscador y el mástil animado */
 
 .page--home {
   max-width: 1080px;

@@ -9,7 +9,7 @@ export interface PrefsState {
   fretLabels: "notas" | "intervalos";
   /** Tamaño de la letra en la hoja, en píxeles. */
   lyricSize: number;
-  /** "acordes": letra con acordes encima. "letra": solo la letra, para cantar. */
+  // "acordes": letra con acordes encima
   sheetView: "acordes" | "letra";
   theme: "auto" | "claro" | "oscuro";
 }

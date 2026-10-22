@@ -1,7 +1,4 @@
-/**
- * Sonido de guitarra con el algoritmo Karplus-Strong: un ruido corto que pasa una y otra vez
- * por un filtro promedio se convierte en una cuerda pulsada. Sin muestras de audio ni librerías.
- */
+// Sonido de guitarra con el algoritmo Karplus-Strong
 let ctx: AudioContext | null = null;
 const cache = new Map<number, AudioBuffer>();
 
@@ -16,7 +13,7 @@ export function midiToFrequency(midi: number): number {
   return 440 * Math.pow(2, (midi - 69) / 12);
 }
 
-/** Genera la muestra de una cuerda con el algoritmo Karplus-Strong. Exportada para probarla. */
+// Genera la muestra de una cuerda con el algoritmo Karplus-Strong
 export function pluck(sampleRate: number, frequency: number, seconds = 2.2, damping = 0.996): Float32Array {
   const length = Math.floor(sampleRate * seconds);
   const period = Math.max(2, Math.round(sampleRate / frequency));
