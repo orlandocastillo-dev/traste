@@ -35,7 +35,7 @@ export function Acordes() {
   const voicing = voicingFor(symbol);
 
   return (
-    <div className="page">
+    <div className="page page--wide">
       <header className="page-head">
         <h1>Diccionario de acordes</h1>
         <p className="muted">Elige la nota y el tipo: ves cómo se toca, qué notas tiene y dónde están en el mástil.</p>

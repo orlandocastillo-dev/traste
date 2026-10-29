@@ -13,7 +13,7 @@ import {
   transposeChord,
   transposeKey,
 } from "../src/lib/music";
-import { scaleMidiInRange } from "../src/lib/positions";
+import { patternMidi, scalePatterns } from "../src/lib/positions";
 
 describe("acordes", () => {
   it("separa fundamental, tipo y bajo", () => {
@@ -88,7 +88,7 @@ describe("escalas", () => {
   });
 
   it("devuelve las notas de una posición de grave a agudo", () => {
-    const midi = scaleMidiInRange(["A", "C", "D", "E", "G"], [5, 8]);
+    const midi = patternMidi(scalePatterns("A", "minor pentatonic")[0]);
     expect(midi[0]).toBe(45); // La en la sexta cuerda, traste 5
     expect([...midi].sort((a, b) => a - b)).toEqual(midi);
     expect(new Set(midi.map((n) => n % 12))).toEqual(new Set([9, 0, 2, 4, 7]));

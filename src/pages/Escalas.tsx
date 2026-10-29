@@ -3,7 +3,8 @@ import { useAppSelector } from "../app/hooks";
 import { Fretboard } from "../components/Fretboard";
 import { playSequence } from "../lib/audio";
 import { chroma, intervalLabel, noteLabel, scaleName, scaleNotes, SCALE_TYPES, SHARPS } from "../lib/music";
-import { POSITIONS, scaleMidiInRange } from "../lib/positions";
+import { patternMidi, scalePatterns } from "../lib/positions";
+import { Posiciones } from "../components/Posiciones";
 
 const ABOUT: Record<string, string> = {
   "minor pentatonic": "La escala más usada en solos de rock, blues y pop. Cinco notas, ninguna choca.",
@@ -22,10 +23,11 @@ export function Escalas() {
   const [type, setType] = useState("minor pentatonic");
   const [positionId, setPositionId] = useState("todo");
   const notes = scaleNotes(tonic, type);
-  const position = POSITIONS.find((p) => p.id === positionId) ?? POSITIONS[0];
+  const patterns = scalePatterns(tonic, type);
+  const position = patterns.find((p) => p.id === positionId);
 
   return (
-    <div className="page">
+    <div className="page page--wide">
       <header className="page-head">
         <h1>Escalas en el mástil</h1>
         <p className="muted">Elige la tónica y la escala. Estudia el diapasón por posiciones y escúchala.</p>
@@ -60,21 +62,12 @@ export function Escalas() {
           ))}
         </ol>
         <div className="fb-toolbar">
-          <label htmlFor="pos-escala" className="sr-only">
-            Posición
-          </label>
-          <select id="pos-escala" value={positionId} onChange={(e) => setPositionId(e.target.value)}>
-            {POSITIONS.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.name}
-              </option>
-            ))}
-          </select>
-          <button type="button" className="btn" onClick={() => playSequence(scaleMidiInRange(notes, position.range ?? [0, 4]))}>
+          <Posiciones patterns={patterns} value={positionId} onChange={setPositionId} />
+          <button type="button" className="btn" onClick={() => playSequence(patternMidi(position ?? patterns[0]))}>
             ▶ Escuchar
           </button>
         </div>
-        <Fretboard notes={notes} tonic={tonic} range={position.range} label={`${scaleName(type)} de ${tonic} en el diapasón`} />
+        <Fretboard notes={notes} tonic={tonic} cells={position?.cells} frets={Math.max(15, position?.range[1] ?? 15)} label={`${scaleName(type)} de ${tonic} en el diapasón`} />
       </section>
     </div>
   );

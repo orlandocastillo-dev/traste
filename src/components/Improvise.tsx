@@ -3,7 +3,8 @@ import { useAppSelector } from "../app/hooks";
 import { playSequence } from "../lib/audio";
 import { keyText } from "../lib/format";
 import { chordLabel, chordPitchClasses, noteLabel, scaleName, scaleNotes, suggestScales } from "../lib/music";
-import { POSITIONS, scaleMidiInRange } from "../lib/positions";
+import { patternMidi, scalePatterns } from "../lib/positions";
+import { Posiciones } from "./Posiciones";
 import { Fretboard } from "./Fretboard";
 
 interface Props {
@@ -24,7 +25,8 @@ export function Improvise({ songKey, chords, activeChord, capo = 0, title }: Pro
 
   const scale = scales.find((s) => s.id === scaleId) ?? scales[0];
   const notes = scaleNotes(scale.tonic, scale.type);
-  const position = POSITIONS.find((p) => p.id === positionId) ?? POSITIONS[0];
+  const patterns = scalePatterns(scale.tonic, scale.type);
+  const position = patterns.find((p) => p.id === positionId);
   const highlight = activeChord ? chordPitchClasses(activeChord) : [];
 
   return (
@@ -42,17 +44,8 @@ export function Improvise({ songKey, chords, activeChord, capo = 0, title }: Pro
       </div>
 
       <div className="fb-tools">
-        <label htmlFor="posicion" className="sr-only">
-          Posición
-        </label>
-        <select id="posicion" value={positionId} onChange={(e) => setPositionId(e.target.value)}>
-          {POSITIONS.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.name}
-            </option>
-          ))}
-        </select>
-        <button type="button" className="btn" onClick={() => playSequence(scaleMidiInRange(notes, position.range ?? [0, 4]))}>
+        <Posiciones patterns={patterns} value={positionId} onChange={setPositionId} />
+        <button type="button" className="btn" onClick={() => playSequence(patternMidi(position ?? patterns[0]))}>
           Escuchar la escala
         </button>
         <p className="legend">
@@ -64,7 +57,7 @@ export function Improvise({ songKey, chords, activeChord, capo = 0, title }: Pro
           )}
         </p>
       </div>
-      <Fretboard notes={notes} tonic={scale.tonic} highlight={highlight} range={position.range} capo={capo} label={`${scale.name} en el diapasón`} />
+      <Fretboard notes={notes} tonic={scale.tonic} highlight={highlight} cells={position?.cells} frets={Math.max(15, position?.range[1] ?? 15)} capo={capo} label={`${scale.name} en el diapasón`} />
     </section>
   );
 }

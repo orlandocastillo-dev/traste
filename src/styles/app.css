@@ -9,6 +9,7 @@
   --rule-strong: #c8cbd1;
   --pen: #2541c2;
   --pen-wash: #edf0fc;
+  --pen-solid: #2b47d6;
   --fb-bg: #f3f4f6;
   --danger: #b4232c;
   --serif: "Literata Variable", Georgia, serif;
@@ -134,7 +135,7 @@ textarea {
 
 .top {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   max-width: 1080px;
@@ -143,9 +144,16 @@ textarea {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font: 600 1.4rem var(--serif);
   letter-spacing: -0.02em;
   text-decoration: none;
+}
+.brand svg {
+  width: 26px;
+  height: 26px;
 }
 
 .top nav {
@@ -372,11 +380,11 @@ select option {
   gap: 0.35rem;
 }
 .chip {
-  min-width: 2.6rem;
-  height: 36px;
-  padding: 0 0.7rem;
+  min-width: 2.75rem;
+  height: 40px;
+  padding: 0 0.85rem;
   border: 1px solid var(--rule);
-  border-radius: 6px;
+  border-radius: 999px;
   background: transparent;
   color: var(--muted);
   font-weight: 550;
@@ -469,7 +477,8 @@ select option {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 1.5rem;
-  padding: 0.9rem 0;
+  padding: 1rem 0.25rem;
+  transition: background-color 0.15s;
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
 }
@@ -497,8 +506,17 @@ select option {
   grid-row: 1 / span 2;
   grid-column: 2;
   align-self: center;
-  color: var(--muted);
-  font-size: 0.9rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.song:hover .song__key {
+  border-color: var(--pen);
+  color: var(--pen);
 }
 
 /* Canción */
@@ -892,59 +910,64 @@ select option {
 
 .fretboard {
   overflow-x: auto;
-  padding: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #1e1410, #140d0a);
+  box-shadow: 0 18px 40px -24px rgb(20 10 5 / 0.6);
   scrollbar-width: thin;
 }
 .fretboard svg {
   display: block;
-  max-width: none;
-}
-.fb__wood {
-  fill: var(--fb-bg);
+  height: auto;
 }
 .fb__inlay {
-  fill: var(--rule-strong);
+  fill: #efe6d3;
+  opacity: 0.85;
 }
 .fb__fret {
-  stroke: var(--rule-strong);
-  stroke-width: 1.5;
+  stroke-width: 2.4;
 }
 .fb__nut {
-  stroke: var(--ink);
-  stroke-width: 4;
+  stroke: #efe6d2;
+  stroke-width: 6;
 }
 .fb__string {
-  stroke: var(--faint);
+  stroke: #d9dade;
+  opacity: 0.9;
+}
+.fb__string.is-wound {
+  stroke: #c4a26a;
 }
 .fb__capo {
-  fill: var(--ink);
+  fill: #0d0d0f;
+  stroke: #55585e;
 }
 .fb__num {
-  fill: var(--muted);
-  font: 500 11px var(--sans);
+  fill: #a8968a;
+  font: 600 11px var(--sans);
 }
 .fb__note circle {
-  fill: var(--paper);
-  stroke: var(--ink);
-  stroke-width: 1.2;
+  fill: #f5f0e6;
+  stroke: rgb(0 0 0 / 0.25);
+  stroke-width: 1;
 }
 .fb__note text {
-  fill: var(--ink);
-  font: 600 9.5px var(--sans);
+  fill: #1b1d21;
+  font: 700 9.5px var(--sans);
 }
 .fb__note.is-tonic circle {
-  fill: var(--pen);
-  stroke: var(--pen);
+  fill: var(--pen-solid);
+  stroke: #fff;
+  stroke-width: 1.6;
 }
 .fb__note.is-chord circle {
-  fill: var(--ink);
+  fill: #ffd27a;
 }
-.fb__note.is-tonic text,
-.fb__note.is-chord text {
-  fill: var(--paper);
+.fb__note.is-tonic text {
+  fill: #fff;
 }
 .fb__note.is-out {
-  opacity: 0.16;
+  opacity: 0.2;
 }
 
 /* Importar desde YouTube */
@@ -1495,16 +1518,17 @@ label.pref {
   transform: scaleX(-1);
 }
 .neck__wood {
-  fill: #2b211b;
+  fill: #3a2216;
 }
 .neck__inlay {
-  fill: #6f5e50;
+  fill: #efe6d3;
+  opacity: 0.8;
 }
 .neck__nut {
   fill: #ece4d4;
 }
 .neck__fret {
-  fill: #b9b3a8;
+  fill: #d6d9de;
 }
 .neck__fretnum {
   fill: var(--faint);
@@ -1526,8 +1550,8 @@ label.pref {
   transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
 }
 .neck__dot circle {
-  fill: var(--pen);
-  stroke: #2b211b;
+  fill: var(--pen-solid);
+  stroke: #fff;
   stroke-width: 2;
 }
 .neck__dot text {
@@ -1586,4 +1610,38 @@ label.pref {
 }
 .neck__open {
   fill: #e9e2d3;
+}
+
+.posiciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.posiciones__boton {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 600 0.95rem var(--sans);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.1s;
+}
+.posiciones__boton:hover {
+  border-color: var(--ink);
+}
+.posiciones__boton:active {
+  transform: scale(0.96);
+}
+.posiciones__boton[aria-pressed="true"] {
+  border-color: var(--pen-solid);
+  background: var(--pen-solid);
+  color: #fff;
+}
+.posiciones__trastes {
+  color: var(--muted);
+  font-size: 0.9rem;
 }

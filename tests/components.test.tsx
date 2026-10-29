@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { makeStore } from "../src/app/store";
 import { ChordDiagram } from "../src/components/ChordDiagram";
 import { Fretboard } from "../src/components/Fretboard";
+import { scalePatterns } from "../src/lib/positions";
 import { GuitarNeck } from "../src/components/GuitarNeck";
 import { strum } from "../src/lib/audio";
 import { Sheet } from "../src/components/Sheet";
@@ -114,7 +115,7 @@ describe("ChordDiagram y Fretboard", () => {
   });
 
   it("marca la tónica y atenúa fuera de la posición", () => {
-    const { container } = withStore(<Fretboard notes={["A", "C", "D", "E", "G"]} tonic="A" range={[5, 8]} label="Pentatónica" />);
+    const { container } = withStore(<Fretboard notes={["A", "C", "D", "E", "G"]} tonic="A" cells={scalePatterns("A", "minor pentatonic")[0].cells} label="Pentatónica" />);
     // La entre los trastes 0 y 15: 6.ª 5, 5.ª 0 y 12, 4.ª 7, 3.ª 2 y 14, 2.ª 10, 1.ª 5.
     expect(container.querySelectorAll(".fb__note.is-tonic")).toHaveLength(8);
     expect(container.querySelectorAll(".fb__note.is-tonic:not(.is-out)")).toHaveLength(3);

@@ -1,22 +1,62 @@
-import { chroma } from "./music";
+import { chroma, scaleNotes } from "./music";
 import { TUNING } from "./voicings";
 
-/** Posiciones típicas para estudiar una escala por partes en el mástil. */
-export const POSITIONS: { id: string; name: string; range: [number, number] | undefined }[] = [
-  { id: "todo", name: "Todo el mástil", range: undefined },
-  { id: "p1", name: "Trastes 0 a 4", range: [0, 4] },
-  { id: "p2", name: "Trastes 3 a 7", range: [3, 7] },
-  { id: "p3", name: "Trastes 5 a 9", range: [5, 9] },
-  { id: "p4", name: "Trastes 7 a 11", range: [7, 11] },
-  { id: "p5", name: "Trastes 10 a 15", range: [10, 15] },
-];
+/** Una casilla del mástil: cuerda (índice en TUNING, 0 = sexta) y traste. */
+export interface Cell {
+  s: number;
+  f: number;
+}
 
-/** Notas MIDI de la escala en una posición, ordenadas de grave a agudo, para escucharla. */
-export function scaleMidiInRange(notes: string[], range: [number, number] = [0, 4]): number[] {
-  const pcs = new Set(notes.map(chroma));
-  const out = new Set<number>();
-  for (const open of TUNING) {
-    for (let f = range[0]; f <= range[1]; f++) if (pcs.has((open + f) % 12)) out.add(open + f);
-  }
-  return [...out].sort((a, b) => a - b);
+export interface Pattern {
+  id: string;
+  name: string;
+  cells: Cell[];
+  range: [number, number];
+}
+
+const ULTIMO_TRASTE = 15;
+
+/**
+ * Las posiciones de verdad de una escala, calculadas desde su tónica.
+ * Pentatónicas: las cinco cajas de dos notas por cuerda. Escalas de siete notas: tres notas por cuerda.
+ * Blues: la caja de la pentatónica menor con la nota de blues donde cae.
+ */
+export function scalePatterns(tonic: string, type: string): Pattern[] {
+  const blues = type === "blues";
+  const base = scaleNotes(tonic, blues ? "minor pentatonic" : type).map(chroma);
+  const extra = blues ? (chroma(tonic) + 6) % 12 : null;
+  if (base.length !== 5 && base.length !== 7) return [];
+  const porCuerda = base.length === 5 ? 2 : 3;
+  const enEscala = new Set(base);
+
+  return base.map((grado, k) => {
+    // Arranca en la sexta cuerda con el grado k y sube nota por nota de la escala.
+    let pitch = TUNING[0] + ((grado - TUNING[0]) % 12 + 12) % 12;
+    const cells: Cell[] = [];
+    for (let s = 0; s < 6; s++) {
+      for (let n = 0; n < porCuerda; n++) {
+        cells.push({ s, f: pitch - TUNING[s] });
+        do pitch++;
+        while (!enEscala.has(pitch % 12));
+      }
+    }
+    let min = Math.min(...cells.map((c) => c.f));
+    let max = Math.max(...cells.map((c) => c.f));
+    // Que quepa en el mástil que se dibuja: si se sale por arriba, una octava más abajo.
+    const corrimiento = min < 0 ? 12 : max > ULTIMO_TRASTE && min >= 12 ? -12 : 0;
+    for (const c of cells) c.f += corrimiento;
+    min += corrimiento;
+    max += corrimiento;
+    if (extra !== null) {
+      for (let s = 0; s < 6; s++) {
+        for (let f = min; f <= max; f++) if ((TUNING[s] + f) % 12 === extra) cells.push({ s, f });
+      }
+    }
+    return { id: `p${k + 1}`, name: `Posición ${k + 1} (trastes ${min} a ${max})`, cells, range: [min, max] };
+  });
+}
+
+/** Notas MIDI de una posición, de grave a agudo, para escucharla. */
+export function patternMidi(p: Pattern): number[] {
+  return [...new Set(p.cells.map((c) => TUNING[c.s] + c.f))].sort((a, b) => a - b);
 }

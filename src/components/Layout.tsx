@@ -31,6 +31,12 @@ export function Layout() {
       </a>
       <header className="top">
         <NavLink to="/" className="brand">
+          <svg viewBox="0 0 26 26" aria-hidden="true">
+            <rect x="1" y="5" width="24" height="16" rx="3" fill="#3a2216" />
+            <path d="M9 5v16M17 5v16" stroke="#d9dade" strokeWidth="1.6" />
+            <path d="M1 9.5h24M1 13h24M1 16.5h24" stroke="#c4a26a" strokeWidth="0.8" />
+            <circle cx="13" cy="13" r="3.4" fill="#2b47d6" stroke="#fff" strokeWidth="1.2" />
+          </svg>
           traste
         </NavLink>
         <nav aria-label="Principal">

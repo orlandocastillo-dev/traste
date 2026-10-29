@@ -1,5 +1,7 @@
+import { useEffect, useId, useRef } from "react";
 import { useAppSelector } from "../app/hooks";
 import { chroma, intervalLabel, noteLabel, spell, usesFlats } from "../lib/music";
+import type { Cell } from "../lib/positions";
 import { TUNING } from "../lib/voicings";
 
 interface Props {
@@ -8,8 +10,8 @@ interface Props {
   tonic: string;
   /** Notas del acorde que suena, para resaltarlas dentro de la escala. */
   highlight?: number[];
-  /** Rango de trastes visible; fuera de él las notas se atenúan. */
-  range?: [number, number];
+  /** Las casillas de la posición que se estudia; las demás notas de la escala se atenúan. */
+  cells?: Cell[];
   frets?: number;
   /** Cejilla: las notas detrás de ella no se pueden tocar y se ocultan. */
   capo?: number;
@@ -19,9 +21,13 @@ interface Props {
 const MARKERS = [3, 5, 7, 9, 15, 17];
 
 // Diapasón completo en SVG
-export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, capo = 0, label }: Props) {
+export function Fretboard({ notes, tonic, highlight = [], cells, frets = 15, capo = 0, label }: Props) {
   const { notation, leftHanded, fretLabels } = useAppSelector((s) => s.prefs);
+  const id = useId().replace(/:/g, "");
   const pcs = new Set(notes.map(chroma));
+  const enPosicion = cells ? new Set(cells.map((c) => `${c.s}-${c.f}`)) : null;
+  const caja = useRef<HTMLDivElement>(null);
+  const desde = cells?.length ? Math.min(...cells.map((c) => c.f)) : 0;
   const tonicPc = chroma(tonic);
   const flats = usesFlats(tonic) || notes.some((n) => n.includes("b"));
 
@@ -37,12 +43,31 @@ export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, cap
     return leftHanded ? width - x : x;
   };
   const lineX = (f: number) => (leftHanded ? width - (openW + f * fretW) : openW + f * fretW);
+  useEffect(() => {
+    const el = caja.current;
+    if (!el || el.scrollWidth <= el.clientWidth) return;
+    const x = ((leftHanded ? width - (openW + desde * fretW) : openW + Math.max(0, desde - 1) * fretW) / width) * el.scrollWidth;
+    el.scrollTo({ left: leftHanded ? x - el.clientWidth : x - 12, behavior: "smooth" });
+  }, [desde, leftHanded, width]);
   const strings = [5, 4, 3, 2, 1, 0]; // índice en TUNING, de la primera a la sexta cuerda
 
   return (
-    <div className="fretboard" role="img" aria-label={label}>
-      <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} aria-hidden="true">
-        <rect x={leftHanded ? 10 : openW} y={top - 8} width={frets * fretW} height={stringGap * 5 + 16} rx={4} className="fb__wood" />
+    <div className="fretboard" role="img" aria-label={label} ref={caja}>
+      <svg viewBox={`0 0 ${width} ${height}`} width="100%" style={{ minWidth: Math.min(width, 640) }} aria-hidden="true">
+        {/* Palo de rosa, trastes de níquel y cuerdas entorchadas */}
+        <defs>
+          <linearGradient id={`madera-${id}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#4a2c1d" />
+            <stop offset="0.5" stopColor="#3a2216" />
+            <stop offset="1" stopColor="#2b1810" />
+          </linearGradient>
+          <linearGradient id={`traste-${id}`} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#8b8f96" />
+            <stop offset="0.5" stopColor="#eef0f3" />
+            <stop offset="1" stopColor="#8b8f96" />
+          </linearGradient>
+        </defs>
+        <rect x={leftHanded ? 10 : openW} y={top - 8} width={frets * fretW} height={stringGap * 5 + 16} rx={3} fill={`url(#madera-${id})`} />
         {MARKERS.filter((m) => m <= frets).map((m) => (
           <circle key={m} cx={cx(m)} cy={top + stringGap * 2.5} r={6} className="fb__inlay" />
         ))}
@@ -53,7 +78,7 @@ export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, cap
           </>
         )}
         {Array.from({ length: frets + 1 }, (_, f) => (
-          <line key={f} x1={lineX(f)} x2={lineX(f)} y1={top - 8} y2={top + stringGap * 5 + 8} className={f === 0 ? "fb__nut" : "fb__fret"} />
+          <line key={f} x1={lineX(f)} x2={lineX(f)} y1={top - 8} y2={top + stringGap * 5 + 8} className={f === 0 ? "fb__nut" : "fb__fret"} stroke={f === 0 ? undefined : `url(#traste-${id})`} />
         ))}
         {strings.map((s, row) => (
           <line
@@ -62,8 +87,8 @@ export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, cap
             x2={leftHanded ? width - openW : width - 10}
             y1={top + row * stringGap}
             y2={top + row * stringGap}
-            className="fb__string"
-            strokeWidth={0.8 + s * 0.28}
+            className={`fb__string ${s < 3 ? "is-wound" : ""}`}
+            strokeWidth={0.9 + (5 - s) * 0.3}
           />
         ))}
         {capo > 0 && (
@@ -90,7 +115,7 @@ export function Fretboard({ notes, tonic, highlight = [], range, frets = 15, cap
           Array.from({ length: frets + 1 }, (_, f) => {
             const pc = (TUNING[s] + f) % 12;
             if (!pcs.has(pc) || f < capo) return null;
-            const inRange = !range || (f >= range[0] && f <= range[1]);
+            const inRange = !enPosicion || enPosicion.has(`${s}-${f}`);
             const isTonic = pc === tonicPc;
             const isChordTone = highlight.includes(pc);
             const text = fretLabels === "intervalos" ? intervalLabel(pc, tonicPc) : noteLabel(spell(pc, flats), notation);
